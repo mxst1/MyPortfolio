@@ -1,0 +1,267 @@
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
+}
+a:hover {
+	color: #535bf2;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+* {
+	cursor: url("/gauntlet-test.png"), auto;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+h1 {
+	font-size: 3.2em;
+	line-height: 1.1;
+}
+
+button {
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: #1a1a1a;
+	cursor: pointer;
+	transition: border-color 0.25s;
+}
+button:hover {
+	border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+	outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
+}
+
+#cursor {
+	background: radial-gradient(
+		circle,
+		rgba(170, 125, 206, 0.5) 0%,
+		rgba(170, 125, 206, 0.3) 60%,
+		rgba(170, 125, 206, 0) 100%
+	);
+	width: 250px;
+	height: 250px;
+	border-radius: 9000px;
+	box-shadow: 0 0 300px #aa7dce;
+	position: fixed;
+	transform: translate(-50%, -50%);
+	z-index: -9000;
+}
+
+.introduction {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	text-align: left;
+}
+
+.introduction h2 {
+	font-size: 40px;
+	line-height: 20px;
+}
+
+.introduction span {
+	color: #aa7dce;
+	text-shadow: #734c92 0 0 30px;
+}
+
+.descriptor {
+	font-size: 20px;
+	position: absolute;
+	top: 100px;
+}
+
+.test {
+	background-color: #171717;
+	width: 530px;
+	height: 450px;
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #aa7dce;
+	box-shadow: 0 0 10px #aa7dce;
+}
+
+.project-name {
+	color: #aa7dce;
+	font-size: 2.2rem;
+	margin-left: 10px;
+	width: 100%;
+	position: static;
+}
+
+.project {
+	width: 240px;
+	height: 150px;
+	position: relative;
+	top: -10px;
+	left: 10px;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #735090;
+	transition: transform 0.2s ease-in;
+}
+
+.project a {
+	color: white;
+	position: relative;
+	top: 2px;
+	left: 10px;
+	text-align: left;
+}
+
+.project:hover {
+	transform: translateY(-10px);
+}
+
+.about {
+	position: absolute;
+	top: 250px;
+	left: 30px;
+}
+
+.projects {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* 2 columns */
+	/* gap: 20px; */
+	position: absolute;
+	top: 250px;
+	left: 580px;
+	width: 530px;
+}
+
+.project-name {
+	grid-column: 1 / -1; /* Span both columns */
+	margin-bottom: 10px;
+	text-align: left;
+	width: 100%;
+}
+
+.achievements {
+	position: absolute;
+	top: 250px;
+	right: 30px;
+}
+
+.stack {
+	width: 96%;
+	height: 250px;
+	position: absolute;
+	top: 720px;
+	left: 30px;
+}
+
+/* Mobile and small screen adjustments */
+@media (max-width: 768px) {
+	#cursor {
+		display: none;
+	}
+
+	body {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.introduction {
+		position: relative;
+		top: 0;
+		left: 0;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.introduction h2 {
+		font-size: 28px;
+		line-height: 1.2;
+	}
+
+	.descriptor {
+		font-size: 16px;
+		position: absolute;
+		top: 120px;
+		left: 55px;
+	}
+
+	.test {
+		width: 90%;
+		height: auto;
+		padding: 20px;
+	}
+
+	.about,
+	.achievements,
+	.projects,
+	.stack {
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		width: 90%;
+		margin-top: 20px;
+	}
+
+	.projects {
+		display: grid;
+		grid-template-columns: 1fr; /* 1 column on small screens */
+		gap: 20px;
+		position: relative;
+		width: 90%;
+		margin-top: 20px;
+		justify-content: center;
+	}
+
+	.project-name {
+		grid-column: 1 / -1;
+		text-align: center;
+		width: 100%;
+	}
+
+	.project {
+		width: 100%;
+		height: auto;
+	}
+}
