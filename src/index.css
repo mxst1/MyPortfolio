@@ -1,10 +1,10 @@
 :root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
 	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
+	color: #ffffffde;
 	background-color: #242424;
 
 	font-synthesis: none;
@@ -96,11 +96,14 @@ button:focus-visible {
 	top: 30px;
 	left: 30px;
 	text-align: left;
+	z-index: -1000;
 }
 
 .introduction h2 {
 	font-size: 40px;
 	line-height: 20px;
+	position: relative;
+	margin-top: 8%;
 }
 
 .introduction span {
@@ -114,36 +117,40 @@ button:focus-visible {
 	top: 100px;
 }
 
-.test {
-	background-color: #171717;
-	width: 530px;
-	height: 450px;
-	border-radius: 10px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #aa7dce;
-	box-shadow: 0 0 10px #aa7dce;
+.about-me {
+	position: relative;
+	margin-top: -10%;
 }
 
-.project-name {
+.cards {
+	display: flex;
+	flex-direction: row;
+	margin-top: -10%;
+	margin-left: -5.2%;
+	gap: 20px;
+}
+
+.card-name {
 	color: #aa7dce;
 	font-size: 2.2rem;
 	margin-left: 10px;
 	width: 100%;
-	position: static;
+	position: relative;
+	top: -40px;
 }
 
 .project {
-	width: 240px;
-	height: 150px;
+	max-width: 300px;
+	max-height: 150px;
 	position: relative;
-	top: -10px;
-	left: 10px;
+	margin-left: -4%;
+	margin-top: -4%;
 	border-radius: 5px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #735090;
 	transition: transform 0.2s ease-in;
+	background-color: #141414;
 }
 
 .project a {
@@ -155,113 +162,224 @@ button:focus-visible {
 }
 
 .project:hover {
-	transform: translateY(-10px);
+	transform: translateY(-10px) scale(1.06);
+	z-index: 999;
 }
 
 .about {
-	position: absolute;
-	top: 250px;
-	left: 30px;
+	position: relative;
+	flex-basis: 29%;
+	flex-shrink: 0;
 }
-
+ 
 .projects {
+	/* display: flex;
+	flex-direction: row;
+	flex-wrap: wrap; */
+	/* gap: 15px; */
+	position: relative;
+	flex-basis: 29%;
+	flex-shrink: 0;
+}
+
+.all-projects {
+	position: relative;
+	margin-left: 1%;
+	margin-top: -13%;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr); /* 2 columns */
-	/* gap: 20px; */
-	position: absolute;
-	top: 250px;
-	left: 580px;
-	width: 530px;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
 }
 
-.project-name {
-	grid-column: 1 / -1; /* Span both columns */
-	margin-bottom: 10px;
-	text-align: left;
-	width: 100%;
-}
-
-.achievements {
-	position: absolute;
-	top: 250px;
-	right: 30px;
+.game {
+	position: relative;
+	flex-basis: 30%;
+	flex-shrink: 0;
 }
 
 .stack {
-	width: 96%;
-	height: 250px;
+	width: 92.5% !important;
+	height: 220px !important;
+	position: absolute !important;
+	top: 700px !important;
+	left: 30px !important;
+}
+
+.stack-marquee {
+	width: 100%;
+	overflow: hidden;
+	padding: 32px 0;
+}
+
+.stack-track {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 200px;
+	position: relative;
+}
+
+.stack-track img {
+	width: 60px;
+	height: 60px;
+	transition: transform 0.2s ease-out;
+	will-change: transform;
+}
+
+.stack-track img:hover {
+	transform: translateY(-10px) scale(1.2);
+	z-index: 999;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	.stack-track img {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.cta {
 	position: absolute;
-	top: 720px;
-	left: 30px;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.cta button:hover img:hover {
+	cursor: pointer !important;
 }
 
 /* Mobile and small screen adjustments */
 @media (max-width: 768px) {
+	/* Remove custom cursor on mobile */
 	#cursor {
 		display: none;
 	}
 
+	* {
+		cursor: auto;
+	}
+
 	body {
-		flex-direction: column;
-		align-items: center;
+		align-items: stretch;
+		padding: 16px;
+	}
+
+	/* Reset absolute positioning */
+	.introduction,
+	.about,
+	.projects,
+	.game,
+	.stack,
+	.descriptor {
+		position: static;
+		width: 100%;
+		margin: 0 0 24px 0;
+		text-align: left;
+		max-width: 55%;
+		margin-left: -2%;
 	}
 
 	.introduction {
-		position: relative;
-		top: 0;
-		left: 0;
-		padding: 20px;
 		text-align: center;
+		position: relative;
+		top: -15vh;
+		left: -50vw;
+	}
+
+	.introduction .greeting {
+		position: relative;
+		left: 13vw;
+		top: 100px;
+		padding-bottom: 10%;
+		padding-top: 10%;
 	}
 
 	.introduction h2 {
-		font-size: 28px;
+		font-size: 1.8rem;
 		line-height: 1.2;
+		margin-left: 15%;
+		max-width: 100%;
 	}
 
 	.descriptor {
-		font-size: 16px;
-		position: absolute;
-		top: 120px;
-		left: 55px;
+		font-size: 1rem;
+		text-align: center;
+		margin-left: 30%;
 	}
 
-	.test {
-		width: 90%;
-		height: auto;
-		padding: 20px;
+	.cards {
+		flex-direction: column;
+		margin-top: -5%;
+		margin-left: -2%;
+		width: 48%;
+		gap: 0px;
 	}
 
-	.about,
-	.achievements,
-	.projects,
-	.stack {
-		position: relative;
-		top: auto;
-		left: auto;
-		right: auto;
-		width: 90%;
-		margin-top: 20px;
-	}
-
+	/* Projects */
 	.projects {
 		display: grid;
-		grid-template-columns: 1fr; /* 1 column on small screens */
-		gap: 20px;
-		position: relative;
-		width: 90%;
-		margin-top: 20px;
-		justify-content: center;
+		grid-template-columns: 1fr;
+		gap: 16px;
 	}
 
 	.project-name {
-		grid-column: 1 / -1;
+		font-size: 1.6rem;
 		text-align: center;
-		width: 100%;
+		margin: 0 0 8px 0;
+		top: 0;
 	}
 
 	.project {
 		width: 100%;
 		height: auto;
+		padding: 5px;
+		font-size: 85%;
+	}
+
+	.project:hover {
+		transform: none;
+	}
+
+	/* About spacing */
+	.about {
+		font-size: 0.95rem;
+	}
+
+	.game {
+		overflow-y: hidden;
+		z-index: 999;
+	}
+
+	.stack {
+		position: static !important;
+		left: auto !important;
+		right: auto !important;
+		top: auto !important;
+
+		width: 68% !important;
+		max-width: 100%;
+		box-sizing: border-box;
+
+		margin: 32px -2%;
+		padding: 16px;
+		height: 250px !important;
+	}
+
+	.bg-waves {
+		/* top: -50px !important; */
+		/* left: -50px !important; */
+		height: 200% !important;
+	}
+
+	footer {
+		visibility: hidden;
+	}
+
+	/* Prevent accidental horizontal scroll globally */
+	html,
+	body {
+		overflow-x: hidden;
 	}
 }

@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Footer CTA inline styles */
+.cta {
+  margin-top: 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cta p {
+  margin: 0;
+}
+.footer-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.footer-button {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-button img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
